@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "classpath:org/apache/log4j/xml/log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="LIFEDOC   -  %d{dd MMM yyyy HH:mm:ss} %5p (%F\:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="append" value="true" />
+		<param name="file" value="/logs/mediswitch.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="LIFEDOC   -  %d{dd MMM yyyy HH:mm:ss} %5p (%F\:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="esocketFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="append" value="true" />
+		<param name="file" value="/logs/mediswitch_esocket.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="LIFEDOC - Esocket   - %d{dd MMM yyyy HH:mm:ss} %5p (%F\:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.nihilent">
+		<level value="debug" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="fileAppender" />
+	</logger>
+	<logger name="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	<logger name="com.mediswitch.uhr.service.impl.PaymentGatewayServiceImpl" additivity="false">
+		<level value="info" />
+		<appender-ref ref="esocketFileAppender" />
+	</logger>
+	
+</log4j:configuration>
