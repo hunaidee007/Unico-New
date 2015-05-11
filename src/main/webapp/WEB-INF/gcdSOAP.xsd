@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns:login="http://mycompany.com/login/schemas" elementFormDefault="qualified"
+ targetNamespace="http://mycompany.com/login/schemas">
+ <xs:element name="GCDRequest">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element type="xs:string" name="temp" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:element name="GCDListRequest">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element type="xs:string" name="temp" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name="GCDResponse">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element type="xs:string" name="calculatedCGD" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:element name="GCDListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="gcd" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+   <xs:element name="GCDSumResponse">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element type="xs:string" name="gcdSum" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+  <xs:element name="GCDSumRequest">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element type="xs:string" name="temp" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ 
+</xs:schema>
